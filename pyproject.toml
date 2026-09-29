@@ -1,0 +1,23 @@
+[project]
+name = "ollama1chat"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Aleksandr Loktionov", email = "loktionov129@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "black>=26.5.1",
+    "mypy>=2.3.1",
+    "ollama>=0.6.3",
+    "pylint>=4.0.9",
+    "ruff>=0.16.9",
+]
+
+[project.scripts]
+ollama1chat = "ollama1chat:main"
+
+[build-system]
+requires = ["uv_build>=0.12.19,<0.13.0"]
+build-backend = "uv_build"
