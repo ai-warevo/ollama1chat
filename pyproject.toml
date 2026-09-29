@@ -1,7 +1,7 @@
 [project]
 name = "ollama1chat"
 version = "0.1.0"
-description = "Add your description here"
+description = "A simple CLI chat interface for Ollama."
 readme = "README.md"
 authors = [
     { name = "Aleksandr Loktionov", email = "loktionov129@gmail.com" }
