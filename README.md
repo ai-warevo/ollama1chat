@@ -40,15 +40,15 @@ uv tool install .
 Start a chat session with the default model (`llama3`):
 
 ```bash
-ollama1chat
+uv run ollama1chat
 ```
 
 Or specify a different model:
 
 ```bash
-ollama1chat --model <model_name>
+uv run ollama1chat --model <model_name>
 # Example:
-ollama1chat --model mistral
+uv run ollama1chat --model llama3
 ```
 
 To exit the chat, type `exit` or `quit`, or press `Ctrl+C`.
@@ -57,9 +57,15 @@ To exit the chat, type `exit` or `quit`, or press `Ctrl+C`.
 
 This project uses modern Python tooling for high code quality.
 
-### Linting and Formatting
+### Linting, Formatting and Checking
 
-Used to ensure consistent style and catch errors early.
+Used to ensure consistent style and catch errors early. The easiest way is to run all checks at once:
+
+```bash
+uv run check
+```
+
+Or run them individually:
 
 ```bash
 # Run linting
@@ -71,3 +77,4 @@ uv run black .
 # Type checking
 uv run mypy src/
 ```
+
