@@ -1,18 +1,24 @@
+"""Модуль, реализующий интерактивного агента для работы с Ollama API."""
+
 import sys
+
 from ollama import Client, ResponseError
 
 
 class OllamaChat:
+    """Класс для управления сессией консольного чата с Ollama."""
 
     def __init__(self, model_name: str):
+        """Инициализирует клиента Ollama и сохраняет имя модели."""
         self.model_name = model_name
         self.client = Client()
 
     def _ask(self, prompt: str) -> str:
-        response = self.client.generate(
+        """Отправляет запрос к Ollama и возвращает текстовый ответ."""
+        answer = self.client.generate(
             model=self.model_name, prompt=prompt, options={"stream": False}
         )
-        return response.response
+        return answer.response or ""
 
     def _get_user_input(self) -> str:
         user_input = input("Вы: ").strip()
@@ -23,10 +29,13 @@ class OllamaChat:
 
         return user_input
 
+    def get_current_model(self) -> str:
+        """Возвращает имя текущей используемой модели."""
+        return self.model_name
+
     def start_loop(self):
-        print(
-            f"🤖 Ollama CLI ({self.model_name}). Для выхода введите 'exit'.\n"
-        )
+        """Запускает бесконечный цикл диалога в консоли."""
+        print(f"🤖 Ollama CLI ({self.model_name}). Для выхода введите 'exit'.\n")
 
         while True:
             try:

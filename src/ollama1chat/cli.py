@@ -1,3 +1,5 @@
+"""Модуль для работы с аргументами командной строки."""
+
 import sys
 
 
@@ -10,9 +12,7 @@ def parse_args() -> str:
             idx = sys.argv.index("--model")
             return sys.argv[idx + 1]
         except IndexError:
-            print(
-                "❌ Ошибка: после флага --model нужно указать название модели."
-            )
+            print("❌ Ошибка: после флага --model нужно указать название модели.")
             sys.exit(1)
 
     return default_model

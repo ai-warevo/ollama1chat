@@ -6,7 +6,7 @@ readme = "README.md"
 authors = [
     { name = "Aleksandr Loktionov", email = "loktionov129@gmail.com" }
 ]
-requires-python = ">=3.12"
+requires-python = ">=3.14"
 dependencies = [
     "black>=26.5.1",
     "mypy>=2.3.1",
@@ -17,7 +17,19 @@ dependencies = [
 
 [project.scripts]
 ollama1chat = "ollama1chat:main"
+check = "check:main"
 
 [build-system]
 requires = ["uv_build>=0.12.19,<0.13.0"]
 build-backend = "uv_build"
+
+[tool.ruff.lint]
+ignore = ["BLE001"]
+
+[tool.pylint.messages_control]
+disable = [
+    "broad-exception-caught",  # Убирает ругань на голый except Exception
+]
+
+[tool.black]
+target-version = ["py314"]
